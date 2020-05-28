@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Евгений Тарасов](https://up.htmlacademy.ru/javascript/20/user/489355).
-* Наставник: `Неизвестно`.
+* Наставник: [Артик Ман](https://htmlacademy.ru/profile/id1445657).
 
 ---
 
