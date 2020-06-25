@@ -10,23 +10,15 @@ var userDialog = document.querySelector('.setup');
 
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 
-var similarWizardTemplate = document.querySelector('#similar-wizard-template')
-  .content
-  .querySelector('.setup-similar-item');
-
-var getRandomArrayElement = function (arr) {
-  var randomIndex = Math.random() * arr.length;
-
-  return arr[Math.floor(randomIndex)];
-};
+var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
 var createWizardsList = function (amount) {
   var list = [];
   for (var i = 0; i < amount; i++) {
     list[i] = {
-      name: getRandomArrayElement(WIZARD_NAMES) + ' ' + getRandomArrayElement(WIZARD_SURNAME),
-      coatColor: getRandomArrayElement(WIZARD_COAT_COLOR),
-      eyeColor: getRandomArrayElement(WIZARD_EYES_COLOR)
+      name: window.util.getRandomArrayElement(WIZARD_NAMES) + ' ' + window.util.getRandomArrayElement(WIZARD_SURNAME),
+      coatColor: window.util.getRandomArrayElement(WIZARD_COAT_COLOR),
+      eyeColor: window.util.getRandomArrayElement(WIZARD_EYES_COLOR)
     };
   }
   return list;
@@ -118,15 +110,15 @@ var setRandomProperty = function (evt) {
   var property;
 
   if (target && target.classList.contains('wizard-coat')) {
-    property = getRandomArrayElement(WIZARD_COAT_COLOR);
+    property = window.util.getRandomArrayElement(WIZARD_COAT_COLOR);
     target.style.fill = property;
     playerSetup.querySelector('input[name="coat-color"]').value = property;
   } else if (target && target.classList.contains('wizard-eyes')) {
-    property = getRandomArrayElement(WIZARD_EYES_COLOR);
+    property = window.util.getRandomArrayElement(WIZARD_EYES_COLOR);
     target.style.fill = property;
     playerSetup.querySelector('input[name="eyes-color"]').value = property;
   } else if (target && target.classList.contains('setup-fireball')) {
-    property = getRandomArrayElement(WIZARD_FIREBALL_COLOR);
+    property = window.util.getRandomArrayElement(WIZARD_FIREBALL_COLOR);
     target.parentElement.style.backgroundColor = property;
     playerSetup.querySelector('input[name="fireball-color"]').value = property;
   }
