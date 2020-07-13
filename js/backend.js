@@ -2,7 +2,7 @@
 
 (function () {
   var URL_SAVE = 'https://javascript.pages.academy/code-and-magick';
-  var URL_LOAD = 'https://javascript.pages.academy/code-and-magick/dat';
+  var URL_LOAD = 'https://javascript.pages.academy/code-and-magick/data';
   var STATUS_CODE = {
     OK: 200
   };
