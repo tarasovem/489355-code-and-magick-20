@@ -40,15 +40,15 @@
     }));
   };
 
-  window.wizard.onEyesChange = window.debounce(function (color) {
+  window.wizard.onEyesChange = window.util.debounce(function (color) {
     eyesColor = color;
     updateWizards();
-  });
+  }, 500);
 
-  window.wizard.onCoatChange = window.debounce(function (color) {
+  window.wizard.onCoatChange = window.util.debounce(function (color) {
     coatColor = color;
     updateWizards();
-  });
+  }, 500);
 
   var onSuccess = function (data) {
     wizards = data;

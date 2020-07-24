@@ -5,9 +5,9 @@
   var WIZARD_EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
 
   var wizard = {
-    onEyesChange: function () {
+    onEyesChange: function (color) {
     },
-    onCoatChange: function () {
+    onCoatChange: function (color) {
     }
   };
 
