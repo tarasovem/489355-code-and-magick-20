@@ -39,7 +39,7 @@
         lastTimeout = window.setTimeout(function () {
           cb.apply(null, parameters);
         }, interval);
-      }
+      };
     }
   };
 })();
