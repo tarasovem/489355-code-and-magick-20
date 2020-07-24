@@ -3,17 +3,20 @@
 
   var userDialog = document.querySelector('.setup');
 
-  var coatColor = 'rgb(101, 137, 164)';
-  var eyesColor = 'black';
+  var colors = {
+    coat: 'rgb(101, 137, 164)',
+    eyes: 'black',
+  };
+
   var wizards = [];
 
   var getRank = function (wizard) {
     var rank = 0;
 
-    if (wizard.colorCoat === coatColor) {
+    if (wizard.colorCoat === colors.coat) {
       rank += 2;
     }
-    if (wizard.colorEyes === eyesColor) {
+    if (wizard.colorEyes === colors.eyes) {
       rank += 1;
     }
 
@@ -30,7 +33,7 @@
     }
   };
 
-  var updateWizards = function () {
+  var updateWizards = window.util.debounce(function () {
     window.render(wizards.sort(function (left, right) {
       var rankDiff = getRank(right) - getRank(left);
       if (rankDiff === 0) {
@@ -38,16 +41,6 @@
       }
       return rankDiff;
     }));
-  };
-
-  window.wizard.onEyesChange = window.util.debounce(function (color) {
-    eyesColor = color;
-    updateWizards();
-  }, 500);
-
-  window.wizard.onCoatChange = window.util.debounce(function (color) {
-    coatColor = color;
-    updateWizards();
   }, 500);
 
   var onSuccess = function (data) {
@@ -133,5 +126,10 @@
       userNameInput.setCustomValidity('');
     }
   });
+
+  window.setup = {
+    colors: colors,
+    updateWizards: updateWizards,
+  };
 })();
 

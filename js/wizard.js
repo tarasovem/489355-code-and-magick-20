@@ -6,25 +6,29 @@
 
   var wizard = {
     onEyesChange: function (color) {
+      window.setup.colors.eyes = color;
+      window.setup.updateWizards();
     },
     onCoatChange: function (color) {
+      window.setup.colors.coat = color;
+      window.setup.updateWizards();
     }
   };
 
   var wizardElement = document.querySelector('.setup-wizard');
-
-  var wizardCoatElement = wizardElement.querySelector('.wizard-coat');
-  wizardCoatElement.addEventListener('click', function (evt) {
-    var newColor = window.util.getRandomArrayElement(WIZARD_COAT_COLOR);
-    evt.target.style.fill = newColor;
-    wizard.onCoatChange(newColor);
-  });
 
   var wizardEyesElement = wizardElement.querySelector('.wizard-eyes');
   wizardEyesElement.addEventListener('click', function (evt) {
     var newColor = window.util.getRandomArrayElement(WIZARD_EYES_COLOR);
     evt.target.style.fill = newColor;
     wizard.onEyesChange(newColor);
+  });
+
+  var wizardCoatElement = wizardElement.querySelector('.wizard-coat');
+  wizardCoatElement.addEventListener('click', function (evt) {
+    var newColor = window.util.getRandomArrayElement(WIZARD_COAT_COLOR);
+    evt.target.style.fill = newColor;
+    wizard.onCoatChange(newColor);
   });
 
   window.wizard = wizard;
